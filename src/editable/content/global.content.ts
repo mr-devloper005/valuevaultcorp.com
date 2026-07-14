@@ -21,20 +21,20 @@ export const globalContent = {
     },
   },
   footer: {
-    tagline: 'Documents, references, and polished discovery.',
-    description: 'A clean place to browse PDFs, supporting resources, and related public content with a calmer premium interface.',
+    heading: 'Useful resources, organized for everyday value.',
+    description: 'Explore practical documents, trusted references, and helpful public resources in one clear, easy-to-browse library.',
+    cta: { label: 'Browse resources', href: '/pdf' },
     columns: [
       {
-        title: 'Explore',
+        title: 'Resources',
         links: [
-          { label: 'PDF Library', href: '/pdf' },
+          { label: 'Document Library', href: '/pdf' },
           { label: 'Articles', href: '/article' },
           { label: 'Profiles', href: '/profile' },
-          { label: 'Bookmarks', href: '/sbm' },
         ],
       },
       {
-        title: 'Company',
+        title: 'Information',
         links: [
           { label: 'About', href: '/about' },
           { label: 'Contact', href: '/contact' },
@@ -42,7 +42,7 @@ export const globalContent = {
         ],
       },
     ],
-    bottomNote: 'Built for refined browsing and dependable document discovery.',
+    bottomNote: 'All rights reserved.',
   },
   commonLabels: {
     readMore: 'Read more',

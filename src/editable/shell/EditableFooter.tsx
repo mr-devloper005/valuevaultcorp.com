@@ -13,7 +13,6 @@ export function EditableFooter() {
     '--editable-footer-bg': '#0d5dab',
     '--editable-footer-text': '#f6fbff',
   } as CSSProperties
-  const taskLinks = SITE_CONFIG.tasks.filter((task) => task.enabled)
   const year = new Date().getFullYear()
   const { session, logout } = useEditableLocalAuthSession()
 
@@ -26,19 +25,18 @@ export function EditableFooter() {
               <span className="overflow-hidden rounded-2xl">
                 <Image src="/favico.png" alt={`${SITE_CONFIG.name} logo`} width={184} height={184} className="h-20 w-auto" />
               </span>
-              <span>
-                <span className="block text-2xl font-black tracking-[-0.05em] text-white">{SITE_CONFIG.name.replace('.com', '')}</span>
-                <span className="block text-xs font-bold uppercase tracking-[0.24em] text-white/60">{globalContent.footer.tagline}</span>
-              </span>
+              <span className="block text-2xl font-black tracking-[-0.05em] text-white">{SITE_CONFIG.name.replace('.com', '')}</span>
             </Link>
-            <h2 className="mt-4 max-w-sm text-4xl font-black leading-[1] tracking-[-0.06em]">Made for documents. Designed for clean public discovery.</h2>
+            <h2 className="mt-4 max-w-sm text-4xl font-black leading-[1] tracking-[-0.06em]">{globalContent.footer.heading}</h2>
             <p className="mt-5 max-w-md text-sm leading-7 text-white/74">{globalContent.footer.description}</p>
-            <Link href="/pdf"  className="mt-7 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-white">
-              Explore library <ChevronRight className="h-4 w-4" />
+            <Link href={globalContent.footer.cta.href} className="mt-7 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.16em] text-white">
+              {globalContent.footer.cta.label} <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <FooterColumn title="Sections" links={taskLinks.map((task) => ({ label: task.label, href: task.route }))} />
+          {globalContent.footer.columns.map((column) => (
+            <FooterColumn key={column.title} title={column.title} links={column.links} />
+          ))}
           
           <div>
             <h3 className="text-xs font-black uppercase tracking-[0.24em] text-white/58">Account</h3>
